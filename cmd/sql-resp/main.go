@@ -54,6 +54,8 @@ func main() {
 	switch cfg.Backend {
 	case "sqlite", "":
 		backend, err = db.OpenSQLite(dsn)
+	case "postgres":
+		backend, err = db.OpenPostgres(dsn)
 	default:
 		log.Fatalf("unsupported backend %q", cfg.Backend)
 	}

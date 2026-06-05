@@ -71,7 +71,7 @@ func (s *Store) assertType(ctx context.Context, key string, dbIdx int, want stri
 }
 
 // upsertKey creates or updates the keys row. Does not change expires_at if keepTTL is true.
-func (s *Store) upsertKey(ctx context.Context, tx *sql.Tx, key string, dbIdx int, typ string, expiresAt *int64) error {
+func (s *Store) upsertKey(ctx context.Context, tx db.Tx, key string, dbIdx int, typ string, expiresAt *int64) error {
 	if expiresAt == nil {
 		_, err := tx.ExecContext(ctx,
 			`INSERT INTO keys(key, db, type, expires_at) VALUES(?,?,?,NULL)

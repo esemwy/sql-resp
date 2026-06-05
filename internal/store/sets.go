@@ -29,7 +29,7 @@ func (s *Store) SAdd(ctx context.Context, key string, dbIdx int, members []strin
 	var added int64
 	for _, m := range members {
 		res, err := s.db.ExecContext(ctx,
-			`INSERT INTO sets(key,db,member) VALUES(?,?,?) ON CONFLICT DO NOTHING`,
+			`INSERT INTO sets(key,db,member) VALUES(?,?,?) ON CONFLICT(key,db,member) DO NOTHING`,
 			key, dbIdx, m)
 		if err != nil {
 			return added, err

@@ -14,7 +14,6 @@ type sqliteDB struct {
 // OpenSQLite opens (or creates) a SQLite database at the given DSN.
 // Use ":memory:" for an in-memory database.
 func OpenSQLite(dsn string) (DB, error) {
-	// Enable WAL mode and foreign keys via the DSN pragma.
 	if dsn != ":memory:" {
 		dsn += "?_pragma=journal_mode(WAL)&_pragma=foreign_keys(ON)"
 	} else {
@@ -43,7 +42,8 @@ func (s *sqliteDB) QueryRowContext(ctx context.Context, query string, args ...an
 	return s.db.QueryRowContext(ctx, query, args...)
 }
 
-func (s *sqliteDB) BeginTx(ctx context.Context, opts *sql.TxOptions) (*sql.Tx, error) {
+// BeginTx returns a *sql.Tx which satisfies the Tx interface directly.
+func (s *sqliteDB) BeginTx(ctx context.Context, opts *sql.TxOptions) (Tx, error) {
 	return s.db.BeginTx(ctx, opts)
 }
 
@@ -52,6 +52,6 @@ func (s *sqliteDB) Close() error {
 }
 
 func (s *sqliteDB) Migrate(ctx context.Context) error {
-	_, err := s.db.ExecContext(ctx, schema)
+	_, err := s.db.ExecContext(ctx, sqliteSchema)
 	return err
 }
