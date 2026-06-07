@@ -1,11 +1,11 @@
 ---
 name: prd-to-issues
-description: Break a PRD into independently-workable issues and create them as real GitLab issues using glab. Use when the user wants to turn a PRD into a list of concrete tasks.
+description: Break a PRD into independently-workable issues and create them as real GitHub issues using gh. Use when the user wants to turn a PRD into a list of concrete tasks.
 ---
 
-# PRD to GitLab Issues
+# PRD to GitHub Issues
 
-Break a PRD into independently-grabbable issues as vertical slices (tracer bullets) and create them directly in GitLab using `glab`.
+Break a PRD into independently-grabbable issues as vertical slices (tracer bullets) and create them directly in GitHub using `gh`.
 
 ## Process
 
@@ -13,11 +13,11 @@ Break a PRD into independently-grabbable issues as vertical slices (tracer bulle
 
 Read `PRD.md` from the repo root. If it doesn't exist, ask the user for the path.
 
-### 2. Verify GitLab project access
+### 2. Verify GitHub project access
 
-Run `glab repo view` to confirm the current repo has a GitLab remote and `glab` can reach it.
+Run `gh repo view` to confirm the current repo has a GitHub remote and `gh` can reach it.
 
-If the command fails because no GitLab remote exists, offer to create the project with `glab repo create`, then proceed once it's set up.
+If the command fails because no GitHub remote exists, offer to create the project with `gh repo create`, then proceed once it's set up.
 
 ### 3. Explore the codebase (optional)
 
@@ -60,10 +60,10 @@ Create issues in dependency order (blockers first) so you can reference real Git
 For each issue, run:
 
 ```
-glab issue create --title "<title>" --description "<body>" --label "<AFK or HITL>"
+gh issue create --title "<title>" --body "<body>" --label "<AFK or HITL>"
 ```
 
-Capture the issue URL/number from each `glab` command's output before moving to the next issue so you can reference it in dependent issues.
+Capture the issue URL/number from each `gh` command's output before moving to the next issue so you can reference it in dependent issues.
 
 Format the `--description` value using this template:
 
@@ -80,7 +80,7 @@ A concise description of this vertical slice. Describe the end-to-end behavior, 
 
 ## Blocked by
 
-- #NNN <title> (if any — use the real GitLab issue number captured from glab output)
+- #NNN <title> (if any — use the real GitHub issue number captured from gh output)
 
 Or "None — can start immediately" if no blockers.
 

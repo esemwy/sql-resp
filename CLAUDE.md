@@ -2,14 +2,14 @@
 
 ## Issue tracking
 
-Issues are managed in GitLab. Always use `glab` to interact with them — never look for local markdown files in an `issues/` directory.
+Issues are managed in GitHub. Always use `gh` to interact with them — never look for local markdown files in an `issues/` directory.
 
 | Task | Command |
 |------|---------|
-| List open issues | `glab issue list` |
-| View an issue | `glab issue view <number>` |
-| Search issues | `glab issue list --search "<query>"` |
-| List closed issues | `glab issue list --state closed` |
+| List open issues | `gh issue list` |
+| View an issue | `gh issue view <number>` |
+| Search issues | `gh issue list --search "<query>"` |
+| List closed issues | `gh issue list --state closed` |
 
 ## PRD
 
