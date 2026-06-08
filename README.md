@@ -2,7 +2,7 @@
 
 A drop-in Redis replacement that stores data in a SQL database. It speaks RESP2 over TCP — existing Redis clients connect to it without any code changes.
 
-[![ko-fi](https://storage.ko-fi.com/cdn/kofi2.png?v=6)](https://ko-fi.com/N6A8210Y3L)
+<a href='https://ko-fi.com/N6A8210Y3L' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi2.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
 ## Why
 
