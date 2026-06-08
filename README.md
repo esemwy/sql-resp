@@ -2,6 +2,8 @@
 
 A drop-in Redis replacement that stores data in a SQL database. It speaks RESP2 over TCP — existing Redis clients connect to it without any code changes.
 
+[![ko-fi](https://storage.ko-fi.com/cdn/kofi2.png?v=6)](https://ko-fi.com/N6A8210Y3L)
+
 ## Why
 
 Redis requires a separate, dedicated process and stores everything in memory. sql-resp stores data in a SQL database instead, giving you:
